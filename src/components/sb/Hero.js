@@ -4,19 +4,17 @@ export default function Hero({ blok }) {
   return (
     <div
       {...storyblokEditable(blok)}
-      className="relative flex flex-col items-center justify-center text-center h-[50vh] bg-cover bg-center  bg-white"
+      className="relative bg-cover bg-no-repeat bg-center h-[50vh] flex items-center justify-center text-white"
+      style={{
+        backgroundImage: `url(${blok?.image?.filename})`,
+      }}
     >
+        <div className="flex flex-col items-center justify-center">
 
-      {/* Content */}
-      <div>
-        <img
-          src={blok?.icon?.filename}
-          alt="Image"
-          className="mx-auto mb-4 w-32 h-32 object-contain drop-shadow-md"
-        ></img>
-        <h1 className="text-6xl font-bold drop-shadow-sm">{blok.title}</h1>
-        <h4 className="mt-2 text-3xl drop-shadow-sm">{blok.paragraph}</h4>
-      </div>
+       
+      <h1 className="text-6xl font-bold">{blok.title}</h1>
+      <p className="text-2xl">{blok.paragraph}</p>
+       </div>
     </div>
   );
 }
