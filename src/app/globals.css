@@ -41,6 +41,8 @@
 
 body {
   background: var(--background);
+  color: black;
+  font-family: monospace;
   color: var(--color-foreground);
   color: var(--color-foreground);
 }

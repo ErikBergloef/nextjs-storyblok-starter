@@ -1,4 +1,3 @@
-// src/app/products/page.js
 import ProductsGrid from "@/components/products/ProductsGrid";
 import { getStoryblokApi } from "@/lib/storyblok";
 import ButtonRow from "@/components/sb/ButtonRow";
@@ -16,13 +15,12 @@ export default async function ProductsPage() {
 
   const products = (data?.stories || []).map((story) => {
     const c = story.content || {};
-    const priceValue = Number(c.price);
-
-    return {
+    const img = c.image?.filename || null;
+    return{
       slug: story.slug,
       title: c.title || story.name,
-      price: Number.isFinite(priceValue) ? priceValue : null,
-      image: c.image?.filename ?? null,
+      price: typeof c.price === "number" ? c.price: null,
+      image: img,
       alt: c.image?.alt || c.title || story.name || "Product image",
     };
   });
@@ -32,5 +30,5 @@ export default async function ProductsPage() {
       <h1>See our products</h1>
       <ProductsGrid products={products} />
     </main>
-  );
-}
+  )
+};
