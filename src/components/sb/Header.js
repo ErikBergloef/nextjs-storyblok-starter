@@ -36,16 +36,16 @@ export default function Header({ blok }) {
       <div className="flex-1 flex justify-end items-center">
 
         {/* Här lägger vi till ikonerna */}
-        <div className="flex gap-4">
+        <div className="flex gap-6">
           <Link href="/search">
 
-            <Image src="/Search_logo.png" alt="Search" width={30} height={30} />
+            <Image src="/Search_logo.png" alt="Search" width={25} height={25} />
           </Link>
           <Link href="/account">
-            <Image src="/Account_logo.png" alt="Search" width={30} height={30} />
+            <Image src="/Account_logo.png" alt="Search" width={25} height={25} />
           </Link>
           <Link href="/cart">
-            <Image src="/Cart_logo.png" alt="Search" width={30} height={30} />
+            <Image src="/Cart_logo.png" alt="Search" width={27} height={27} />
           </Link>
         </div>
       </div>
