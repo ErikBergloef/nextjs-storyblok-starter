@@ -11,7 +11,7 @@ export default function Hero({ blok }) {
       <div>
         <img
           src={blok?.icon?.filename}
-          alt="Logo"
+          alt="Image"
           className="mx-auto mb-4 w-32 h-32 object-contain drop-shadow-md"
         ></img>
         <h1 className="text-6xl font-bold drop-shadow-sm">{blok.title}</h1>
