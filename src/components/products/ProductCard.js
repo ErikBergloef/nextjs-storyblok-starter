@@ -6,7 +6,7 @@ export default function ProductCard({ title, price, image, slug }) {
   return (
     <Link
       href={`/products/${slug}`}
-      className="border rounded-sm p-4 hover:shadow-lg transition-shadow duration-300"
+      className="rounded-sm p-4 hover:shadow-lg transition-shadow duration-300"
     >
       <div className="w-full h-48 relative mb-4">
         {image ? (
