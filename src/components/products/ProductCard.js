@@ -6,7 +6,7 @@ export default function ProductCard({ title, price, image, slug }) {
   return (
     <Link
       href={`/products/${slug}`}
-      className="border rounded-lg p-4 hover:shadow-lg transition-shadow duration-300"
+      className="border rounded-sm p-4 hover:shadow-lg transition-shadow duration-300"
     >
       <div className="w-full h-48 relative mb-4">
         {image ? (
@@ -18,7 +18,7 @@ export default function ProductCard({ title, price, image, slug }) {
             style={{ objectFit: "cover", width: "100%", height: "100%" }}
           />
         ) : (
-          <div className="w-full h-full bg-gray-200 flex items-center justify-center">
+          <div className="w-full h-full bg-white flex items-center justify-center">
             {" "}
             No Image{" "}
           </div>
