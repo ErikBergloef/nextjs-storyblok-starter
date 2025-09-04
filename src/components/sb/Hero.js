@@ -1,72 +1,42 @@
 // src/components/sb/Hero.js
 import { storyblokEditable } from "@storyblok/react";
-import StoryblokImage from "./StoryblokImage"; // Se till att denna komponent finns
+import StoryblokImage from "./StoryblokImage";
 
 export default function Hero({ blok }) {
-  // Här lägger vi till en fall-back om du inte har exakt 3 hero_items
-  const items = blok.hero_item || [];
+  const items = (blok?.hero_item || []).slice(0, 3); // max 3
 
   return (
-    <div {...storyblokEditable(blok)} className="relative bg-white "> 
-      <div className="flex flex-wrap md:flex-nowrap justify-center items-center">
-        
-        {/* Vänster objekt */}
-        {items[0] && (
-          <div key={items[0]._uid} className="w-full md:w-1/3 relative h-[400px] md:h-[600px] flex-shrink-0 border-l border-black">
-             {items[0].image && (
-                <StoryblokImage
-                    src={items[0].image.filename}
-                    alt={items[0].image.alt || items[0].title}
-                    fill={true}
-                    className="object-cover"
-                />
-            )}
-            {items[0].title && (
-                <div className="absolute bottom-4 left-4 text-white bg-black bg-opacity-50 px-2 py-1 rounded">
-                  <h3 className="text-sm font-semibold">{items[0].title}</h3>
-                </div>
-            )}
-          </div>
-        )}
+    <section {...storyblokEditable(blok)} className="bg-white">
+      <div className="grid grid-cols-1 md:grid-cols-3 md:divide-x divide-black">
+        {items.map((item, i) => {
+          if (!item?.image?.filename) return null;
 
-        {/* Mitten objekt (störst) */}
-        {items[1] && (
-          <div key={items[1]._uid} className="w-full md:w-1/3 relative h-[400px] md:h-[600px] flex-grow  border-l border-black">
-             {items[1].image && (
+          return (
+            <div key={item._uid || i} className="relative bg-white">
+              {/* Stabil layout utan hopp med aspect-ratio */}
+              <div className="w-full relative h-[450px] md:h-[90vh]">
                 <StoryblokImage
-                    src={items[1].image.filename}
-                    alt={items[1].image.alt || items[1].title}
-                    fill={true}
-                    className="object-cover"
+                  src={item.image.filename}
+                  alt={item.image.alt || item.title || "Hero image"}
+                  fill
+                  className="object-cover"
+                  // Tydliga breakpoints så browsern väljer rätt srcset-kandidat
+                  sizes="(min-width: 1536px) 33vw, (min-width: 1280px) 33vw, (min-width: 1024px) 33vw, (min-width: 768px) 33vw, 100vw"
+                  priority={i === 0}
+                  loading={i === 0 ? "eager" : "lazy"}
+                  quality={75}
                 />
-            )}
-            {items[1].title && (
-                <div className="absolute bottom-4 left-4 text-white bg-black bg-opacity-50 px-2 py-1 rounded">
-                  <h3 className="text-sm font-semibold">{items[1].title}</h3>
-                </div>
-            )}
-          </div>
-        )}
+              </div>
 
-        {/* Höger objekt */}
-        {items[2] && (
-          <div key={items[2]._uid} className="w-full md:w-1/3 relative h-[400px] md:h-[600px] flex-shrink-0 border-r border-l border-black">
-             {items[2].image && (
-                <StoryblokImage
-                    src={items[2].image.filename}
-                    alt={items[2].image.alt || items[2].title}
-                    fill={true}
-                    className="object-cover"
-                />
-            )}
-            {items[2].title && (
-                <div className="absolute bottom-4 left-4 text-white bg-black bg-opacity-50 px-2 py-1 rounded">
-                  <h3 className="text-sm font-semibold">{items[2].title}</h3>
+              {item.title && (
+                <div className="absolute bottom-3 left-3 text-slate-950/90 bg-white/90 px-2 py-1 ">
+                  <h3 className="md:text-md lg:text-lg font-light italic">{item.title}</h3>
                 </div>
-            )}
-          </div>
-        )}
+              )}
+            </div>
+          );
+        })}
       </div>
-    </div>
+    </section>
   );
 }

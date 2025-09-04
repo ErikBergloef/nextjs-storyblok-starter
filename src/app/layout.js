@@ -1,19 +1,16 @@
-import { Geist, Geist_Mono } from "next/font/google";
+// app/layout.jsx
 import "./globals.css";
 import StoryBlokProvider from "@/components/StoryBlokProvider";
 import { getStoryblokApi } from "@/lib/storyblok";
 import Header from "@/components/sb/Header";
 import Footer from "@/components/sb/Footer";
+import { Inter } from "next/font/google";
 
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  variable: "--font-roboto",
+  display: "swap",
+  style: ["normal", "italic"], // om du vill kunna använda italic
 });
 
 export const metadata = {
@@ -23,21 +20,17 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
   const storyblok = getStoryblokApi();
-  const global = await storyblok.get("cdn/stories/global", {
-    version: "draft",
-  });
+  const global = await storyblok.get("cdn/stories/global", { version: "draft" });
 
   return (
-    <StoryBlokProvider>
-      <html lang="en">
-        <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        >
+    <html lang="sv">
+      <body className={`${inter.variable} font-sans antialiased`}>
+        <StoryBlokProvider>
           <Header blok={global.data.story.content.header[0]} />
           {children}
           <Footer blok={global.data.story.content.footer[0]} />
-        </body>
-      </html>
-    </StoryBlokProvider>
+        </StoryBlokProvider>
+      </body>
+    </html>
   );
 }
