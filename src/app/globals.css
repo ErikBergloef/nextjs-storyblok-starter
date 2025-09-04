@@ -27,6 +27,27 @@
   --leading-normal: 1.5;
 
   /* Färger (valfritt) */
+  /* Fonts */
+  --font-sans: var(--font-roboto);
+
+  /* Fluid font sizes (justera efter smak) */
+  --text-xs:     clamp(0.75rem, 0.72rem + 0.10vw, 0.78rem);
+  --text-sm:     clamp(0.875rem, 0.84rem + 0.15vw, 0.94rem);
+  --text-base:   clamp(1rem, 0.96rem + 0.25vw, 1.125rem);
+  --text-lg:     clamp(1.125rem, 1.05rem + 0.45vw, 1.25rem);
+  --text-xl:     clamp(1.25rem, 1.15rem + 0.70vw, 1.5rem);
+  --text-2xl:    clamp(1.5rem, 1.30rem + 1.10vw, 1.875rem);
+  --text-3xl:    clamp(1.875rem, 1.55rem + 1.60vw, 2.25rem);
+  --text-4xl:    clamp(2.25rem, 1.80rem + 2.30vw, 3rem);
+  --text-5xl:    clamp(3rem, 2.20rem + 3.80vw, 3.75rem);
+  --text-6xl:    clamp(3.75rem, 2.60rem + 5.20vw, 4.5rem);
+
+  /* Line-height (valfritt, lite tightare rubriker) */
+  --leading-tight: 1.15;
+  --leading-snug:  1.25;
+  --leading-normal: 1.5;
+
+  /* Färger (valfritt) */
   --color-background: var(--background);
   --color-foreground: #111827;
 }
@@ -40,10 +61,6 @@
 
 body {
   background: var(--background);
-<<<<<<< HEAD
   color: black;
   font-family: monospace;
-=======
-  color: var(--color-foreground);
->>>>>>> 0e7f08d (fixed alot of stuff)
 }
