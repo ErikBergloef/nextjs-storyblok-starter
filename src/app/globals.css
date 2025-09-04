@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 /* Basfärger (valfritt) */
+/* Basfärger (valfritt) */
 :root {
   --background: #ffffff;
 }
@@ -33,7 +34,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: white;
+    --background: #0b0b0b;
     --foreground: #e5e7eb;
   }
 }
