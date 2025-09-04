@@ -18,30 +18,28 @@ export default function Footer({ blok }) {
             <SignUpBlock blok={signUpBlockData} />
           </div>
         )}
-      </div>
-      {footerGridColumns && (
-        <div className="w-full flex justify-end  items-center pr-[1vw] border-r border-t border-b">
-          {/* Tätt grid */}
-          <div className="grid grid-cols-3 gap-12">
-            {footerGridColumns.map((column) => (
-              <div key={column._uid} className="px-1">
-                <h4 className="font-normal mb-1 text-md text-left">
-                  {column.title}
-                </h4>
-                <ul className="space-y-2 pt-2 font-light ">
-                  {column.footer_links?.map((linkItem) => (
-                    <li key={linkItem._uid} className="text-[14.5px] leading-snug">
-                      <Link href={linkItem.link.cached_url || "/"}>
-                        {linkItem.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+
+        {footerGridColumns && (
+          <div className="w-full sm:w-1/2 md:w-2/3 p-2">
+            <div className="flex flex-wrap justify-around">
+              {footerGridColumns.map((column) => (
+                <div key={column._uid} className="w-1/2 md:w-1/3 p-2">
+                  <h4 className="font-bold mb-2 text-md">{column.title}</h4>
+                  <ul className="flex flex-col items-center">
+                    {column.footer_links?.map((linkItem) => (
+                      <li key={linkItem._uid} className="mb-2 text-xs">
+                        <Link href={linkItem.link.cached_url || "/"}>
+                          {linkItem.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 }
