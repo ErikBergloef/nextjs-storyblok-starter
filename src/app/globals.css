@@ -40,5 +40,7 @@
 
 body {
   background: var(--background);
+<<<<<<< HEAD
   color: black;
+  font-family: monospace;
 }
