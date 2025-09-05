@@ -34,17 +34,13 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0b0b0b;
+    --background: white;
     --foreground: #e5e7eb;
   }
 }
 
 body {
   background: var(--background);
-<<<<<<< HEAD
   color: black;
   font-family: monospace;
-=======
-  color: var(--color-foreground);
->>>>>>> 0e7f08d (fixed alot of stuff)
 }
