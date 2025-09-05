@@ -66,6 +66,8 @@ export default async function ProductsPage() {
     <main style={{ padding: "2rem" }}>
       <h1>See our products</h1>
       <ProductsGrid products={products} />
+
+  
     </main>
   );
 }

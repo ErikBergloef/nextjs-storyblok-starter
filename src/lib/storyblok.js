@@ -8,8 +8,7 @@ import DoesNotExist from '@/components/sb/DoesNotExist';
 import Hero from '@/components/sb/Hero';
 import Header from '@/components/sb/Header';
 import Footer from '@/components/sb/Footer';
-import ButtonRow from '@/components/sb/ButtonRow';
-
+import FeaturedProductsSection from '@/components/sb/FeaturedProductsSection';
 
 export const components = {
     // Add your components here
@@ -20,8 +19,7 @@ export const components = {
     grid: Grid,
     teaser: Teaser,
     hero: Hero,
-    doesNotExist: DoesNotExist,
-    button_row: ButtonRow,
+    doesNotExist: DoesNotExist
   };
 
   /**
