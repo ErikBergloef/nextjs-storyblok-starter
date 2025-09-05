@@ -21,8 +21,7 @@ export const components = {
     grid: Grid,
     teaser: Teaser,
     hero: Hero,
-    doesNotExist: DoesNotExist,
-    button_row: ButtonRow,
+    doesNotExist: DoesNotExist
   };
 
   /**
