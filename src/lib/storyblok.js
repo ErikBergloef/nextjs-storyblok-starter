@@ -10,6 +10,7 @@ import Header from '@/components/sb/Header';
 import Footer from '@/components/sb/Footer';
 import ButtonRow from '@/components/sb/ButtonRow';
 
+import FeaturedProductsSection from '@/components/sb/FeaturedProductsSection';
 
 export const components = {
     // Add your components here
@@ -22,6 +23,7 @@ export const components = {
     hero: Hero,
     doesNotExist: DoesNotExist,
     button_row: ButtonRow,
+    featured_products: FeaturedProductsSection
   };
 
   /**
