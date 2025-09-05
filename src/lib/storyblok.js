@@ -23,7 +23,6 @@ export const components = {
     hero: Hero,
     doesNotExist: DoesNotExist,
     button_row: ButtonRow,
-    featured_products: FeaturedProductsSection
   };
 
   /**
