@@ -12,6 +12,7 @@ import ButtonRow from '@/components/sb/ButtonRow';
 
 import FeaturedProductsSection from '@/components/sb/FeaturedProductsSection';
 
+
 export const components = {
     // Add your components here
     header: Header,
@@ -22,7 +23,7 @@ export const components = {
     teaser: Teaser,
     hero: Hero,
     doesNotExist: DoesNotExist,
-    featured_products: FeaturedProductsSection
+    button_row: ButtonRow,
   };
 
   /**
