@@ -1,44 +1,48 @@
-// components/products/FeaturedProductsSection.jsx
 import { getStoryblokApi } from "@/lib/storyblok";
 import FeaturedProductsSlider from "./FeaturedProductsSlider";
 
+export default async function FeaturedProductsSection({ blok }) {
+  const limit = Math.max(1, Number(blok.limit) || 6);
+  const title = blok.title || "Featured products";
 
-export default async function FeaturedProductsSection({
-  title = "Featured products",
-  limit = 9,
-}) {
   const sb = getStoryblokApi();
+  const perPage = Math.min(100, Math.max(10, limit * 2)); // hämta fler än vi visar
+
   const { data } = await sb.get("cdn/stories", {
     starts_with: "products/",
     is_startpage: 0,
     version: process.env.NODE_ENV === "development" ? "draft" : "published",
-    per_page: Math.max(10, limit * 2),
-    // När du har en featured-flagga i SB:
-    // filter_query: { featured: { in: true } },
+    per_page: perPage,
   });
 
-  const products = (data?.stories || [])
-    .map((story) => {
-      const c = story.content || {};
-      const img = c.image?.filename || null;
-      const priceValue = typeof c.price === "string" ? parseFloat(c.price) : c.price;
-      return {
-        slug: story.slug,
-        title: c.title || story.name,
-        price: typeof priceValue === "number" && !Number.isNaN(priceValue) ? priceValue : null,
-        image: img,
-        alt: c.image?.alt || c.title || story.name || "Product image",
-      };
-    })
-    .slice(0, limit);
+  const stories = data?.stories ?? [];
+  const products = stories.slice(0, limit).map((story) => ({
+    slug: story.slug,
+    title: story.content?.title || story.name,
+    price: Number(story.content?.price) || null,
+    image: story.content?.image?.filename ?? null,
+    alt:
+      story.content?.image?.alt ||
+      story.content?.title ||
+      story.name ||
+      "Product image",
+  }));
 
   if (!products.length) return null;
 
   return (
-    <section className="px-4 sm:px-6 lg:px-8 py-10">
-      <div className="mb-4 flex items-baseline justify-between">
-        <h2 className="text-xl font-semibold">{title}</h2>
-        <a href="/products" className="text-sm underline">View all</a>
+    <section className="px-4 sm:px-6 lg:px-2 py-10  border-l border-r">
+      <div className="flex items-baseline justify-between">
+        <div className="ml-6">
+          <h2 className="text-xl font-light mb-1" >{title}</h2>
+          <p className="text-md font-light text-gray-500 ">{blok?.description}</p>
+        </div>
+
+        <div>
+          <a href="/products" className="text-sm underline mr-6">
+            View all
+          </a>
+        </div>
       </div>
 
       <FeaturedProductsSlider products={products} interval={5000} />

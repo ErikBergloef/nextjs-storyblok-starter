@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function SignUpBlock({ blok }) {
   return (
     <div {...storyblokEditable(blok)}>
-      <h4 className="font-normal mb-2 text-lg">{blok.title}</h4>
+      <h4 className="font-light mb-2 text-lg">{blok.title}</h4>
       <p className="font-light text-sm">{blok.description}</p>
       <input
         type="email"
