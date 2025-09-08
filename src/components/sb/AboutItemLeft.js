@@ -18,9 +18,9 @@ export default function AboutItemLeft({ blok }) {
 
         {/* Text höger */}
         <div className="ml-15 mr-12">
-          {blok.title && <h2 className="text-4xl font-light">{blok.title}</h2>}
+          {blok.title && <h2 className="text-4xl font-extralight ">{blok.title}</h2>}
           {blok.description && (
-            <p className="mt-4 text-lg leading-relaxed">{blok.description}</p>
+            <p className="mt-4 text-lg font-extralight leading-relaxed">{blok.description}</p>
           )}
         </div>
       </div>
