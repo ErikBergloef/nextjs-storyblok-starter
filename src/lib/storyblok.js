@@ -9,6 +9,7 @@ import Hero from '@/components/sb/Hero';
 import Header from '@/components/sb/Header';
 import Footer from '@/components/sb/Footer';
 import FeaturedProductsSection from '@/components/sb/FeaturedProductsSection';
+import HeaderDescription from "@/components/sb/HeaderDescription"
 
 export const components = {
     // Add your components here
@@ -20,7 +21,8 @@ export const components = {
     teaser: Teaser,
     hero: Hero,
     doesNotExist: DoesNotExist,
-    featured_products: FeaturedProductsSection
+    featured_products: FeaturedProductsSection,
+    header_description: HeaderDescription,
   };
 
   /**

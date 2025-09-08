@@ -1,18 +1,22 @@
 // src/app/products/page.js
 import ProductsGrid from "@/components/products/ProductsGrid";
+import HeaderDescription from "@/components/sb/HeaderDescription";
 import { getStoryblokApi } from "@/lib/storyblok";
 
 export default async function ProductsPage() {
   const sb = getStoryblokApi();
 
-  const { data } = await sb.get("cdn/stories", {
+  const { data: pageData } = await sb.get("cdn/stories/products", {
+    version: process.env.NODE_ENV === "development" ? "draft" : "published",
+  });
+  
+  const { data: productsData } = await sb.get("cdn/stories", {
     starts_with: "products/",
     is_startpage: 0,
     version: process.env.NODE_ENV === "development" ? "draft" : "published",
-    // per_page: 100, // valfritt: hämta fler om du har många produkter
   });
 
-  const products = (data?.stories || []).map((story) => {
+  const products = (productsData?.stories || []).map((story) => {
     const c = story.content || {};
     const priceValue = Number(c.price);
 
@@ -24,11 +28,18 @@ export default async function ProductsPage() {
       alt: c.image?.alt || c.title || story.name || "Product image",
     };
   });
-
+  
   return (
-    <main style={{ padding: "2rem" }}>
-      <h1>See our products</h1>
+    <div>
+      {/* Skicka in body-innehållet från produktsidan till HeaderDescription */}
+      <HeaderDescription body={pageData?.story?.content?.body} />
       <ProductsGrid products={products} />
-    </main>
+    </div>
   );
 }
+
+
+
+
+
+ {/* <ButtonRow body={pageData?.story?.content?.body} /> */}
