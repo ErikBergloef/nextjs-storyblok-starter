@@ -25,6 +25,9 @@ export default async function ProductPage({ params }) {
             />
           </div>
         )}
+        <div className="flex space-x-0.5">
+          {product.sizes}
+        </div>
   
         <div className="flex flex-col justify-start space-y-4">
           <h1 className="text-lg font-bold">{product.title}</h1>
