@@ -23,7 +23,11 @@ export const components = {
     teaser: Teaser,
     hero: Hero,
     doesNotExist: DoesNotExist,
-    featured_products: FeaturedProductsSection
+    featured_products: FeaturedProductsSection,
+
+    about_page: AboutPage,
+    about_item_1: AboutItemLeft,
+    about_item_2: AboutItemRight,
   };
 
 /**
