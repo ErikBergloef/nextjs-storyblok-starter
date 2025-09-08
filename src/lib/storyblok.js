@@ -12,18 +12,20 @@ import Hero from "@/components/sb/Hero";
 import Header from "@/components/sb/Header";
 import Footer from "@/components/sb/Footer";
 import FeaturedProductsSection from "@/components/sb/FeaturedProductsSection";
+import Banner from "@/components/sb/Banner";
 
 export const components = {
-    // Add your components here
-    header: Header,
-    footer: Footer,
-    page: Page,
-    feature: Feature,
-    grid: Grid,
-    teaser: Teaser,
-    hero: Hero,
-    doesNotExist: DoesNotExist,
-    featured_products: FeaturedProductsSection,
+  // Add your components here
+  header: Header,
+  footer: Footer,
+  page: Page,
+  feature: Feature,
+  grid: Grid,
+  teaser: Teaser,
+  hero: Hero,
+  doesNotExist: DoesNotExist,
+  featured_products: FeaturedProductsSection,
+  banner: Banner,
 
     about_page: AboutPage,
     about_item_1: AboutItemLeft,

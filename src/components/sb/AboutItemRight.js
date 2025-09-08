@@ -4,7 +4,7 @@ export default function AboutItemRight({ blok }) {
   return (
     <article {...storyblokEditable(blok)} className="">
       <div className="grid items-center md:grid-cols-2 
-      border-l border-r">
+      border-l border-r border-b">
         {/* Bild höger */}
         <div className="md:order-2">
           {blok.image?.filename && (
@@ -18,9 +18,9 @@ export default function AboutItemRight({ blok }) {
 
         {/* Text vänster */}
         <div className="md:order-1 mr-12 ml-15">
-          {blok.title && <h2 className="text-4xl font-light">{blok.title}</h2>}
+          {blok.title && <h2 className="text-4xl font-extralight">{blok.title}</h2>}
           {blok.description && (
-            <p className="mt-4 text-lg leading-relaxed">{blok.description}</p>
+            <p className="mt-4 text-lg font-extralight leading-relaxed">{blok.description}</p>
           )}
         </div>
       </div>
