@@ -25,10 +25,6 @@ export default async function ProductPage({ params }) {
             />
           </div>
         )}
-        <div className="flex space-x-0.5">
-          {product.sizes}
-        </div>
-  
         <div className="flex flex-col justify-start space-y-4">
           <h1 className="text-lg font-bold">{product.title}</h1>
           {product.price && (
@@ -41,6 +37,22 @@ export default async function ProductPage({ params }) {
               {product.description}
             </p>
           )}
+          <div className="flex flex-wrap gap-2 mt-4">
+            {product.sizes && product.sizes.length > 0 && (
+              <>
+              <p className="font-bold text-sm">Sizes:</p>
+              {product.sizes.map(sizeRow => (
+                <div key={sizeRow._uid} className="flex flex-wrap gap-1">
+                  {sizeRow.button.map(button => (
+                    <button key={button.uid} className="px-4 py-2 border-1 border-black  text-sm font-medium hover:bg-gray-100 transition-colors">
+                      {button.label}
+                    </button>
+                  ))}
+                </div>
+              ))}
+              </>
+            )}
+          </div>
         </div>
       </div>
     </main>
