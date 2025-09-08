@@ -1,6 +1,7 @@
 // src/app/products/page.js
 import ProductsGrid from "@/components/products/ProductsGrid";
 import HeaderDescription from "@/components/sb/HeaderDescription";
+import ButtonRow from "@/components/sb/ButtonRow";
 import { getStoryblokApi } from "@/lib/storyblok";
 
 export default async function ProductsPage() {
@@ -28,18 +29,12 @@ export default async function ProductsPage() {
       alt: c.image?.alt || c.title || story.name || "Product image",
     };
   });
-  
+
   return (
     <div>
-      {/* Skicka in body-innehållet från produktsidan till HeaderDescription */}
       <HeaderDescription body={pageData?.story?.content?.body} />
+      <ButtonRow body={pageData?.story?.content?.body} />
       <ProductsGrid products={products} />
     </div>
   );
 }
-
-
-
-
-
- {/* <ButtonRow body={pageData?.story?.content?.body} /> */}

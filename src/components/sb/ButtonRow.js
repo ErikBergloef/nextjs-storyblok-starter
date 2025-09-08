@@ -1,13 +1,18 @@
+// src/components/sb/ButtonRow.js
+import { storyblokEditable } from "@storyblok/react";
 import ButtonItem from "./ButtonItem";
 
-export default function ButtonRow({ blok }) {
-
-    console.log("ButtonRow blok data:", blok);
-    return(
-        <div className="flex flex-row gap-4 pl-4">
-            {blok?.button?.map((btn) => (
-                <ButtonItem blok={btn} key={btn._uid}/>
-            ))}
-        </div>
-    );
+export default function ButtonRow({ body }) {
+  const buttonRowBlok = body?.find((blok) => blok.component === "button_row");
+  if (!buttonRowBlok) {
+    return null;
+  }
+  
+  return (
+    <div {...storyblokEditable(buttonRowBlok)} className="flex flex-row gap-4 pl-4">
+      {buttonRowBlok.button?.map((btn) => (
+        <ButtonItem blok={btn} key={btn._uid} />
+      ))}
+    </div>
+  );
 }
