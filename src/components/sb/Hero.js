@@ -7,7 +7,7 @@ export default function Hero({ blok }) {
 
   return (
     <section {...storyblokEditable(blok)} className="bg-white">
-      <div className="grid grid-cols-1 md:grid-cols-3 divide-x divide-black border">
+      <div className="grid grid-cols-1 md:grid-cols-3 divide-x divide-black border-l border-r">
         {items.map((item, i) => {
           if (!item?.image?.filename) return null;
 

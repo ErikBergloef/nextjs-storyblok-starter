@@ -4,7 +4,7 @@ export default function AboutItemRight({ blok }) {
   return (
     <article {...storyblokEditable(blok)} className="">
       <div className="grid items-center md:grid-cols-2 
-      border-l border-r border-b">
+      border-l border-r">
         {/* Bild höger */}
         <div className="h-[90vh] md:order-2">
           {blok.image?.filename && (

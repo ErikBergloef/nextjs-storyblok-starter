@@ -32,14 +32,14 @@ export default async function FeaturedProductsSection({ blok }) {
 
   return (
     <section className="px-4 sm:px-6 lg:px-2 py-10  border-l border-r">
-      <div className="flex items-baseline justify-between">
+      <div className="flex items-center justify-between mb-8">
         <div className="ml-6">
           <h2 className="text-xl font-light mb-1" >{title}</h2>
           <p className="text-md font-light text-gray-500 ">{blok?.description}</p>
         </div>
 
-        <div>
-          <a href="/products" className="text-sm underline mr-6">
+        <div className="flex items-center mr-6">
+          <a href="/products" className="text-md hover:underline">
             View all
           </a>
         </div>

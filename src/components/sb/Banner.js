@@ -5,7 +5,7 @@ export default function Banner({ blok }) {
   const images = logos.length ? logos : [];
 
   return (
-    <section {...storyblokEditable(blok)} className="w-full h-auto border-r border-l ">
+    <section {...storyblokEditable(blok)} className="w-full h-auto border">
       <div className="flex items-center justify-between gap-2 overflow-x-auto py-8 px-20 ">
         {images.map((asset, i) =>
           asset.filename ? (
