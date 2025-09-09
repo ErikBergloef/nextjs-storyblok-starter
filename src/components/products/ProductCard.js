@@ -17,7 +17,7 @@ export default function ProductCard({
 }) {
   // förvalda höjder – grid behåller din h-48
   const variantHeights = {
-    grid: "h-48",
+    grid: "h-[250px] ",
     slider: "h-64 md:h-72 lg:h-80",
   };
   const resolvedHeight = imgHeightClass || variantHeights[variant];

@@ -6,7 +6,7 @@ export default function Header({ blok }) {
   return (
     <div
       {...storyblokEditable(blok)}
-      className="w-full h-[9vh] flex items-center justify-between px-8 bg-white shadow-md text-black "
+      className="border-l border-r border-t w-full h-[9vh] flex items-center justify-between px-8 bg-white shadow-md text-black "
     >
       {/* Vänster sektion för logotyp och nav_items */}
       <div className="flex items-center space-x-8">
