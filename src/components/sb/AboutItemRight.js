@@ -6,12 +6,12 @@ export default function AboutItemRight({ blok }) {
       <div className="grid items-center md:grid-cols-2 
       border-l border-r border-b">
         {/* Bild höger */}
-        <div className="md:order-2">
+        <div className="h-[90vh] md:order-2">
           {blok.image?.filename && (
             <img
               src={blok.image.filename}
               alt={blok.title || "About image"}
-              className="w-full h-auto  object-cover border-l"
+              className="w-full h-full object-cover border-l"
             />
           )}
         </div>
