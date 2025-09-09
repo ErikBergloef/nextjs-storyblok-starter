@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://felix-erik-cms-grupparbete.vercel.app/sitemap.xml
