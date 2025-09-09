@@ -4,6 +4,7 @@ import ButtonItem from "@/components/sb/ButtonItem";
 
 export default async function ProductPage({ params }) {
   const sb = getStoryblokApi();
+  
 
   const { data } = await sb.get(`cdn/stories/products/${params.slug}`, {
     version: process.env.NODE_ENV === "development" ? "draft" : "published",

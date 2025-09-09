@@ -12,7 +12,7 @@ export default async function Home() {
   return (
     <div className="page">
       <StoryblokStory story={data.story} />
-      <FeaturedProductsSection title="Summer '25 Picks" limit={9} />
+      <FeaturedProductsSection />
     </div>
   );
 }
