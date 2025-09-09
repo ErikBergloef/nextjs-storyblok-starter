@@ -10,7 +10,6 @@ export default function Header({ blok }) {
     >
       {/* Vänster sektion för logotyp och nav_items */}
       <div className="flex items-center space-x-8">
-
         {/* Logo -> hem-länk */}
         <div className="flex-none">
           <Link href="/" aria-label="Gå till startsidan" className="block">
@@ -19,8 +18,8 @@ export default function Header({ blok }) {
               alt={blok.logo.alt || "Företagsnamn"} // gärna ditt riktiga namn
               width={70}
               height={40}
-              priority              // snabb och stabil i headern
-              sizes="70px"          // liten, exakt källa -> skarp & lätt
+              priority // snabb och stabil i headern
+              sizes="70px" // liten, exakt källa -> skarp & lätt
             />
           </Link>
         </div>
@@ -28,13 +27,15 @@ export default function Header({ blok }) {
         {/* Navigation */}
         <nav>
           <ul className="flex space-x-8 font-light">
-            {blok.nav_items?.map((navItem) => (
-              <li key={navItem._uid}>
-                <Link href={navItem.link.story?.url || "/"}>
-                  {navItem.label}
-                </Link>
-              </li>
-            ))}
+            {blok.nav_items?.map((navItem) => {
+              const raw = navItem.link?.story?.url ?? navItem.link?.url ?? "/";
+              const href = raw.startsWith("/") ? raw : `/${raw}`; // alltid med /
+              return (
+                <li key={navItem._uid}>
+                  <Link href={href}>{navItem.label}</Link>
+                </li>
+              );
+            })}
           </ul>
         </nav>
       </div>
