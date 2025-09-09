@@ -30,7 +30,7 @@ export default async function sitemap() {
             version: "published",
             starts_with: "products" 
         })
-
+        console.log(productStories.data.stories);
         const dynamicPaths = productStories.data.stories.map(story => ({
             url: `${baseUrl}/${story.full_slug}/`,
             lastModified: new Date(story.updated_at) || new Date(),
