@@ -18,7 +18,7 @@ export default async function ProductPage({ params }) {
   const colorButtonRow = product?.colors?.find((blok) => blok.component === "button_row");
 
   return (
-    <main className="p-8 border-l border-r border-t">
+    <main className="p-8 border-l border-r ">
       <div className=" grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
 
         {/* Produktbild */}
