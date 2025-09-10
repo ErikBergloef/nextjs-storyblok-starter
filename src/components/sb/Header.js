@@ -6,21 +6,34 @@ export default function Header({ blok }) {
   return (
     <div
       {...storyblokEditable(blok)}
-      className="border w-full h-[9vh] flex items-center justify-between px-8 bg-white shadow-md text-black "
+      className="border w-full h-[9vh] flex items-center justify-between px-8 bg-white shadow-md text-black"
     >
-      {/* Vänster sektion för logotyp och nav_items */}
-      <div className="flex items-center space-x-8">
+      {/* Vänster sektion för loggor + navigation */}
+      <div className="flex items-center space-x-6">
+        
+        {/* Grupp för loggorna */}
+        <div className="flex items-center">
+          {/* Logo 1 */}
+          <Link href="/" aria-label="Home" className="block mb-2">
+            <Image
+              src={blok.logo?.filename}
+              alt={blok.logo?.alt || "Företagsnamn"}
+              width={50}
+              height={40}
+              priority
+              sizes="70px"
+            />
+          </Link>
 
-        {/* Logo -> hem-länk */}
-        <div className="flex-none">
+          {/* Logo 2 */}
           <Link href="/" aria-label="Home" className="block">
             <Image
-              src={blok.logo.filename}
-              alt={blok.logo.alt || "Företagsnamn"} // gärna ditt riktiga namn
-              width={70}
-              height={40}
-              priority              // snabb och stabil i headern
-              sizes="70px"          // liten, exakt källa -> skarp & lätt
+              src={blok.logo_2?.filename}
+              alt={blok.logo_2?.alt || "Företagsnamn"}
+              width={80}
+              height={60}
+              priority
+              sizes="70px"
             />
           </Link>
         </div>
