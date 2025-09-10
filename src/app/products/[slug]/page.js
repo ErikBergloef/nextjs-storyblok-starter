@@ -19,11 +19,11 @@ export default async function ProductPage({ params }) {
 
   return (
     <main className="p-8 border-l border-r border-t">
-      <div className=" grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+      <div className=" grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
 
         {/* Produktbild */}
         {product.image?.filename && (
-          <div className="flex justify-start">
+          <div className="flex justify-start items-center">
             <div className="image-container rounded-2xl shadow-lg max-w-sm w-full overflow-hidden">
               <img
                 src={product.image.filename}
