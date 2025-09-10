@@ -92,7 +92,7 @@ export default async function ProductPage({ params }) {
                 
               ))}
               <div>
-                  <p className="text-start l-20 mb-3 underline text-gray-600 text-sm mt-8">Size & Fit guide</p>
+                  <p className="text-start select-none l-20 mb-3 underline text-gray-600 text-sm mt-8">Size & Fit guide</p>
               </div>
             </div>
             
