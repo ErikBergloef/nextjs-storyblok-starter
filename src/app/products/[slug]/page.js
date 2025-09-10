@@ -84,15 +84,24 @@ export default async function ProductPage({ params }) {
                         {btn.label}
                       </span>
                     </label>
+                    
                   ))}
+                  
                 </div>
+                
+                
               ))}
+              <div>
+                  <p className="text-start l-20 mb-3 underline text-gray-600 text-sm mt-8">Size & Fit guide</p>
+              </div>
             </div>
+            
           )}
 
         </div>
 
       </div>
+      
     </main>
   );
 }
